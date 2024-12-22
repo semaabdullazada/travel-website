@@ -52,6 +52,34 @@
 
 //   getCountryImages();
 // });
+// const sumbitMessage = document.querySelector('.subscribe');
+// const inputValue = document.querySelector('.login');
+// sumbitMessage.addEventListener('click',()=>{
+//   if(inputValue.value.length > 0){
+//     alert('ugurla gonderildi');
+//   }
+// })
+const submitMessage = document.querySelector('.subscribe');
+const inputValue = document.querySelector('.login');
+const successM = document.querySelector('.sucsessMessage');
+const failMessage = document.querySelector('.failMessage');
+submitMessage.addEventListener('click', () => {
+  const email = inputValue.value; 
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; 
+  
+  if (email.length === 0) {
+    alert('Email daxil edin!');
+  } else if (!emailRegex.test(email)) {
+    failMessage.style.display = "block";
+    return;
+  } else {
+    failMessage.style.display = "none";
+    successM.style.display='block';
+    // alert('Uğurla göndərildi!');
+  }
+});
+
+
 
 
 const moreInfo1 = document.querySelector('.about1');
@@ -73,7 +101,6 @@ moreInfo1.addEventListener('click', () => {
   infoFestival1.style.display = 'block';
   }else{
     infoFestival1.style.display = 'none';
-
   }
 })
 
@@ -83,7 +110,6 @@ moreInfo2.addEventListener('click', () => {
   infoFestival2.style.display = 'block';
   }else{
     infoFestival2.style.display = 'none';
-
   }
 })
 
@@ -93,7 +119,6 @@ moreInfo3.addEventListener('click', () => {
   infoFestival3.style.display = 'block';
   }else{
     infoFestival3.style.display = 'none';
-
   }
 })
 
@@ -123,3 +148,15 @@ moreInfo6.addEventListener('click', () => {
     infoFestival6.style.display = 'none';
   }
 })
+
+
+const unsplashApiKey = 'Aybt5-f9Qr7iZ2o239OQDV1_0Dt2EolFWAacsOUJieY';
+const url = "https://cors.bridged.cc/https://www.wikidata.org/w/api.php?action=wbgetentities&ids=Q6581097&props=labels|descriptions|claims|sitelinks&format=json";
+
+fetch(url)
+    .then(response => response.json())
+    .then(data => {
+        console.log(data);
+        // Burada məlumatı emal edə bilərsiniz.
+    })
+    .catch(error => console.error('Error:', error));

@@ -137,6 +137,22 @@ button{
     background-color: #d1cfcf;
     margin-left: 14%
 }
+.sucsessMessage{
+    position: absolute;
+    left: 12%;
+    top:42%;
+    color:green;
+}
+.success-icon, .fail-icon{
+    width: 4%;
+    height: 4%;
+}
+.failMessage{
+    position: absolute;
+    color: red;
+    left: 12%;
+    top:42%;
+}
 .slideshow-container{
     display: grid;
 }
@@ -179,7 +195,7 @@ button{
     overflow-x: auto; /* Horizontal scroll */
     scroll-behavior: smooth; /* Smooth scroll */
     -webkit-overflow-scrolling: touch; /* Mobil cihazlar üçün daha yaxşı scroll */
-    padding: 10%;
+    padding: 3%;
 }
 
 .images-container::-webkit-scrollbar {
@@ -237,3 +253,6 @@ button{
 .more-info:hover {
     background-color: white;
 }
+/* body{
+    background-color: black;
+} */
