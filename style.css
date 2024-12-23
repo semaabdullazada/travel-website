@@ -140,18 +140,19 @@ button{
 .sucsessMessage{
     position: absolute;
     left: 12%;
-    top:42%;
+    top:40%;
     color:green;
 }
 .success-icon, .fail-icon{
     width: 4%;
     height: 4%;
+
 }
 .failMessage{
     position: absolute;
     color: red;
     left: 12%;
-    top:42%;
+    top:40%;
 }
 .slideshow-container{
     display: grid;
@@ -191,27 +192,27 @@ button{
     display: flex;
     gap: 20px;
     padding: 10px;
-    max-width: 100%; /* Konteynerin ölçüsünə uyğunlaşır */
-    overflow-x: auto; /* Horizontal scroll */
-    scroll-behavior: smooth; /* Smooth scroll */
-    -webkit-overflow-scrolling: touch; /* Mobil cihazlar üçün daha yaxşı scroll */
+    max-width: 100%;
+    overflow-x: auto; 
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch; 
     padding: 3%;
 }
 
 .images-container::-webkit-scrollbar {
-    display: none; /* Chrome, Safari, və Edge üçün scrollbar-ı gizləyir */
+    display: none; 
 }
 
 .more-info {
-    position: absolute; /* Düymənin yerləşdirmə tərzi */
-    top: 50%;          /* Yuxarıdan məsafə */
+    position: absolute; 
+    top: 50%;          
     left: 35%;      
 
     background-color: #d1cfcf;
     padding: 10px 20px;
     border: none;
     border-radius: 5px;
-    cursor: pointer; /* Kursor dəyişir */
+    cursor: pointer; 
     font-size: 16px;
     justify-content: center;
     z-index: 1; 
@@ -233,12 +234,12 @@ button{
     background-color: white;
     width: 26vw;
     left: 4.85%;
-    top:95%; /* Üst hissəyə məsafə */
+    top:95%; 
     text-align: center;
     padding: 10px;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
-    z-index: 10; /* Daha yuxarıda göstərilir */
+    z-index: 10;
 }
 
 .container-fest1 {
@@ -246,8 +247,8 @@ button{
 }
 
 .festivals:hover {
-    transform: scale(1.06); /* 10% böyütmə */
-    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.2); /* Daha dərin kölgə effekti */
+    transform: scale(1.06); 
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.2);
 }
 
 .more-info:hover {
@@ -256,3 +257,31 @@ button{
 /* body{
     background-color: black;
 } */
+/* .header-text{
+    margin-top: 40px;
+    text-align: center;
+    font-size: 50px;
+    font-weight: 600;
+} */
+.seeAllTradition{
+    position: relative;
+    border-radius: 8px;
+    background-color: #f0f0f0;
+    /* height: 0px; */
+    width: 12%;
+    margin-top: 0px;
+    /* margin-left: 0px; */
+    /* padding: 1%; */
+    font-size: 38px;
+    /* margin-left: 6%; */
+    left: 20%;
+    justify-content: center;
+    /* color: brown; */
+}
+.seeAllTradition:hover{
+    background-color: #d1cfcf;
+}
+
+.header-text{
+    margin-top: 3%;
+}

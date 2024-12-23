@@ -71,10 +71,12 @@ submitMessage.addEventListener('click', () => {
     alert('Email daxil edin!');
   } else if (!emailRegex.test(email)) {
     failMessage.style.display = "block";
+    successM.style.display='none';
     return;
   } else {
     failMessage.style.display = "none";
     successM.style.display='block';
+    return;
     // alert('Uğurla göndərildi!');
   }
 });
@@ -150,13 +152,32 @@ moreInfo6.addEventListener('click', () => {
 })
 
 
-const unsplashApiKey = 'Aybt5-f9Qr7iZ2o239OQDV1_0Dt2EolFWAacsOUJieY';
-const url = "https://cors.bridged.cc/https://www.wikidata.org/w/api.php?action=wbgetentities&ids=Q6581097&props=labels|descriptions|claims|sitelinks&format=json";
+// const unsplashApiKey = 'Aybt5-f9Qr7iZ2o239OQDV1_0Dt2EolFWAacsOUJieY';
+// const url = "https://cors.bridged.cc/https://www.wikidata.org/w/api.php?action=wbgetentities&ids=Q6581097&props=labels|descriptions|claims|sitelinks&format=json";
 
-fetch(url)
-    .then(response => response.json())
-    .then(data => {
-        console.log(data);
-        // Burada məlumatı emal edə bilərsiniz.
-    })
-    .catch(error => console.error('Error:', error));
+// fetch(url)
+//     .then(response => response.json())
+//     .then(data => {
+//         console.log(data);
+//     })
+//     .catch(error => console.error('Error:', error));
+async function getGeoLocation() {
+  const url = 'https://ip-geo-location.p.rapidapi.com/ip/check?format=json&language=en';
+  const options = {
+    method: 'GET',
+    headers: {
+      'x-rapidapi-key': '8047422b07mshb0f9a3387cfb589p11c392jsn05b3f1f12325',
+      'x-rapidapi-host': 'ip-geo-location.p.rapidapi.com'
+    }
+  };
+
+  try {
+    const response = await fetch(url, options);
+    const result = await response.text();
+    console.log(result);
+  } catch (error) {
+    console.error('Error:', error);
+  }
+}
+
+getGeoLocation(); // Funksiyanı çağırın
