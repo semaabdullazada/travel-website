@@ -13,7 +13,7 @@
         <header>
             <ul class="nav-bar">
                 <li><a href="./About/About.html">About</a></li>
-                <li><a>Explore</a></li>
+                <li><a href="./Explore/explore.html">Explore</a></li>
                 <li><a>About</a></li>
                 <li><a>Contact</a></li>
             </ul>
@@ -21,8 +21,29 @@
         <div class="header-line">
             <div class="boldshift entry-word">Discover the <br> Best Place <br> Welcome!</div>
             <img src="./andrew-neel-K7JEYFDictM-unsplash.jpg" alt="logo" class="fimage">
-            <input type="text" class="search login" placeholder="Enter your email">
-            <button class="subscribe">Subscribe</button>
+            <form class="login-form">
+                <div class="form-group">
+                    <label for="name" class="login-name">Name</label>
+                    <input type="text" id="name" class="search login name" placeholder="Enter your name">
+                </div>
+                <div class="form-group">
+                    <label for="surname" class="login-surname">Surname</label>
+                    <input type="text" id="surname" class="search login surname" placeholder="Enter your surname">
+                </div>
+                <div class="form-group">
+                    <label for="mail" class="login-mail">Mail</label>
+                    <input type="text" id="mail" class="search login mail" placeholder="Enter your mail">
+                </div>
+                <div class="form-group">
+                    <label for="number" class="login-number">Number</label>
+                    <input type="text" id="number" class="search login number" placeholder="Enter your name">
+                </div>
+                <button type="submit" class="subscribe">Subscribe</button>
+            </form>
+            
+
+
+            <!-- <button class="subscribe">Subscribe</button> -->
             <p class="sucsessMessage" style="display: none;"><img src="./success-icon-10.png" class="success-icon">Abune olundu!</p>
             <p class="failMessage" style="display: none;"><img src="./failmessag.png" class="fail-icon">Yalnsi email daxil edildi.</p>
         </div>
@@ -86,6 +107,7 @@
             </div>
         </div>
 
+        <div id="data-container"></div>
     <script src="script.js"></script>
 
     </div>

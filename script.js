@@ -161,23 +161,29 @@ moreInfo6.addEventListener('click', () => {
 //         console.log(data);
 //     })
 //     .catch(error => console.error('Error:', error));
-async function getGeoLocation() {
-  const url = 'https://ip-geo-location.p.rapidapi.com/ip/check?format=json&language=en';
-  const options = {
-    method: 'GET',
-    headers: {
-      'x-rapidapi-key': '8047422b07mshb0f9a3387cfb589p11c392jsn05b3f1f12325',
-      'x-rapidapi-host': 'ip-geo-location.p.rapidapi.com'
-    }
-  };
+const dataContainer = document.getElementById('data-container');
 
-  try {
-    const response = await fetch(url, options);
-    const result = await response.text();
-    console.log(result);
-  } catch (error) {
-    console.error('Error:', error);
-  }
-}
+// API-dən məlumatları götür
+fetch('https://countriesnow.space/api/v0.1/countries/population/cities')
+  .then(response => response.json()) // JSON formatında cavabı oxuyur
+  .then(data => {
+    const results = data.data; // API-dən gələn əsas məlumatlar
 
-getGeoLocation(); // Funksiyanı çağırın
+    results.forEach(item => {
+      // Yeni bir div elementi yaradaraq məlumatları daxil edirik
+      const countryInfo = document.createElement('div');
+      countryInfo.innerHTML = `
+        <h3>Ölkə: ${item.country}</h3>
+        <p>Şəhər: ${item.city}</p>
+        <p>Əhali: ${item.populationCounts[0].value}</p>
+        <p>İl: ${item.populationCounts[0].year}</p>
+        <hr>
+      `;
+      // Hazır div elementini əsas konteynerə əlavə edirik
+      dataContainer.appendChild(countryInfo);
+    });
+  })
+  .catch(error => {
+    console.error('Xəta baş verdi:', error);
+    dataContainer.innerHTML = '<p>Məlumat yüklənə bilmədi.</p>'; // Xəta halında mesaj göstərilir
+  });
