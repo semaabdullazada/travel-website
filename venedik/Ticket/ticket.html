@@ -3,42 +3,57 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ticket Booking</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Event Booking</title>
+    <link rel="stylesheet" href="ticket.css">
 </head>
 <body>
-    <h1>Venedik Gondol Bilet Al</h1>
-    <form action="/buy-ticket" method="post" class="booking-form">
-        <!-- Səyahət Tarixi -->
-        <label for="date">Səyahət Tarixi:</label>
-        <input type="date" id="date" name="date" required>
+    <div class="activity-details">
+        <h1>Event Booking</h1>
+        <form action="/book-now" method="post" class="booking-form">
+            <label for="event">Event:</label>
+            <select id="event" name="event">
+            <option value="secim">Seciminizi edin</option>
+            <option value="rio">Rio festival</option>
+            <option value="holi">Holi Festival</option>
+            <option value="karaoke">Karoke</option>
+            <option value="venice">Venedik festival</option>
+            <option value="skydiving">Skydiving</option>
+            <option value="yoga">Yoga</option>
+            </select>
+\            <label for="adult">Adult:</label>
+            <select id="adult" name="adult">
+                <option value="0">0</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+            </select>
+            <label for="child">Child:</label>
+            <select id="child" name="child">
+                <option value="0">0</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>          
+              </select>
 
-        <!-- Saat Seçimi -->
-        <label for="time">Saat:</label>
-        <input type="time" id="time" name="time" required>
+            <h3>Total Price: <span id="total-price">$0.00</span></h3>
 
-        <!-- Sərnişin Sayı -->
-        <label for="passenger">Sərnişin Sayı:</label>
-        <input type="number" id="passenger" name="passenger" min="1" required>
+            <button type="submit" class="book-btn">Book Now</button>
+            <button type="button" class="cart-btn">Add to Cart</button>
+        </form>
+    </div>
 
-        <!-- Bilet Növü -->
-        <label for="ticket">Bilet Növü:</label>
-        <select id="ticket" name="ticket">
-            <option value="adult">Böyük</option>
-            <option value="child">Uşaq</option>
-            <option value="senior">Yaşlı</option>
-        </select>
-
-        <!-- Ödəniş Metodları -->
-        <label for="payment">Ödəniş Metodu:</label>
-        <select id="payment" name="payment">
-            <option value="credit-card">Kredit Kartı</option>
-            <option value="paypal">PayPal</option>
-            <option value="apple-pay">Apple Pay</option>
-        </select>
-
-        <!-- Sifarişi Tamamla Düyməsi -->
-        <button type="submit" class="submit-btn">Bileti Al</button>
-    </form>
+   <script src="./ticket.js"></script>
 </body>
 </html>
