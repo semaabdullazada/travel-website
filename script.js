@@ -84,72 +84,72 @@ submitMessage.addEventListener('click', () => {
 
 
 
-const moreInfo1 = document.querySelector('.about1');
-const moreInfo2 = document.querySelector('.about2');
-const moreInfo3 = document.querySelector('.about3');
-const moreInfo4 = document.querySelector('.about4');
-const moreInfo5 = document.querySelector('.about5');
-const moreInfo6 = document.querySelector('.about6');
-const infoFestival1 = document.querySelector('.info-festival1');
-const infoFestival2 = document.querySelector('.info-festival2');
-const infoFestival3 = document.querySelector('.info-festival3');
-const infoFestival4 = document.querySelector('.info-festival4');
-const infoFestival5 = document.querySelector('.info-festival5');
-const infoFestival6 = document.querySelector('.info-festival6');
+// const moreInfo1 = document.querySelector('.about1');
+// const moreInfo2 = document.querySelector('.about2');
+// const moreInfo3 = document.querySelector('.about3');
+// const moreInfo4 = document.querySelector('.about4');
+// const moreInfo5 = document.querySelector('.about5');
+// const moreInfo6 = document.querySelector('.about6');
+// const infoFestival1 = document.querySelector('.info-festival1');
+// const infoFestival2 = document.querySelector('.info-festival2');
+// const infoFestival3 = document.querySelector('.info-festival3');
+// const infoFestival4 = document.querySelector('.info-festival4');
+// const infoFestival5 = document.querySelector('.info-festival5');
+// const infoFestival6 = document.querySelector('.info-festival6');
 
-infoFestival1.style.display = 'none';
-moreInfo1.addEventListener('click', () => {
-  if(infoFestival1.style.display === 'none'){
-  infoFestival1.style.display = 'block';
-  }else{
-    infoFestival1.style.display = 'none';
-  }
-})
+// infoFestival1.style.display = 'none';
+// moreInfo1.addEventListener('click', () => {
+//   if(infoFestival1.style.display === 'none'){
+//   infoFestival1.style.display = 'block';
+//   }else{
+//     infoFestival1.style.display = 'none';
+//   }
+// })
 
-infoFestival2.style.display = 'none';
-moreInfo2.addEventListener('click', () => {
-  if(infoFestival2.style.display === 'none'){
-  infoFestival2.style.display = 'block';
-  }else{
-    infoFestival2.style.display = 'none';
-  }
-})
+// infoFestival2.style.display = 'none';
+// moreInfo2.addEventListener('click', () => {
+//   if(infoFestival2.style.display === 'none'){
+//   infoFestival2.style.display = 'block';
+//   }else{
+//     infoFestival2.style.display = 'none';
+//   }
+// })
 
-infoFestival3.style.display = 'none';
-moreInfo3.addEventListener('click', () => {
-  if(infoFestival3.style.display === 'none'){
-  infoFestival3.style.display = 'block';
-  }else{
-    infoFestival3.style.display = 'none';
-  }
-})
+// infoFestival3.style.display = 'none';
+// moreInfo3.addEventListener('click', () => {
+//   if(infoFestival3.style.display === 'none'){
+//   infoFestival3.style.display = 'block';
+//   }else{
+//     infoFestival3.style.display = 'none';
+//   }
+// })
 
-infoFestival4.style.display = 'none';
-moreInfo4.addEventListener('click', () => {
-  if(infoFestival4.style.display === 'none'){
-  infoFestival4.style.display = 'block';
-  }else{
-    infoFestival4.style.display = 'none';
-  }
-})
+// infoFestival4.style.display = 'none';
+// moreInfo4.addEventListener('click', () => {
+//   if(infoFestival4.style.display === 'none'){
+//   infoFestival4.style.display = 'block';
+//   }else{
+//     infoFestival4.style.display = 'none';
+//   }
+// })
 
-infoFestival5.style.display = 'none';
-moreInfo5.addEventListener('click', () => {
-  if(infoFestival5.style.display === 'none'){
-  infoFestival5.style.display = 'block';
-  }else{
-    infoFestival5.style.display = 'none';
-  }
-})
+// infoFestival5.style.display = 'none';
+// moreInfo5.addEventListener('click', () => {
+//   if(infoFestival5.style.display === 'none'){
+//   infoFestival5.style.display = 'block';
+//   }else{
+//     infoFestival5.style.display = 'none';
+//   }
+// })
 
-infoFestival6.style.display = 'none';
-moreInfo6.addEventListener('click', () => {
-  if(infoFestival6.style.display === 'none'){
-  infoFestival6.style.display = 'block';
-  }else{
-    infoFestival6.style.display = 'none';
-  }
-})
+// infoFestival6.style.display = 'none';
+// moreInfo6.addEventListener('click', () => {
+//   if(infoFestival6.style.display === 'none'){
+//   infoFestival6.style.display = 'block';
+//   }else{
+//     infoFestival6.style.display = 'none';
+//   }
+// })
 
 
 // const unsplashApiKey = 'Aybt5-f9Qr7iZ2o239OQDV1_0Dt2EolFWAacsOUJieY';
@@ -161,29 +161,26 @@ moreInfo6.addEventListener('click', () => {
 //         console.log(data);
 //     })
 //     .catch(error => console.error('Error:', error));
-const dataContainer = document.getElementById('data-container');
+// const dataContainer = document.getElementById('data-container');
 
-// API-dən məlumatları götür
-fetch('https://countriesnow.space/api/v0.1/countries/population/cities')
-  .then(response => response.json()) // JSON formatında cavabı oxuyur
-  .then(data => {
-    const results = data.data; // API-dən gələn əsas məlumatlar
+// fetch('https://countriesnow.space/api/v0.1/countries/population/cities')
+//   .then(response => response.json()) 
+//   .then(data => {
+//     const results = data.data;
 
-    results.forEach(item => {
-      // Yeni bir div elementi yaradaraq məlumatları daxil edirik
-      const countryInfo = document.createElement('div');
-      countryInfo.innerHTML = `
-        <h3>Ölkə: ${item.country}</h3>
-        <p>Şəhər: ${item.city}</p>
-        <p>Əhali: ${item.populationCounts[0].value}</p>
-        <p>İl: ${item.populationCounts[0].year}</p>
-        <hr>
-      `;
-      // Hazır div elementini əsas konteynerə əlavə edirik
-      dataContainer.appendChild(countryInfo);
-    });
-  })
-  .catch(error => {
-    console.error('Xəta baş verdi:', error);
-    dataContainer.innerHTML = '<p>Məlumat yüklənə bilmədi.</p>'; // Xəta halında mesaj göstərilir
-  });
+//     results.forEach(item => {
+//       const countryInfo = document.createElement('div');
+//       countryInfo.innerHTML = `
+//         <h3>Ölkə: ${item.country}</h3>
+//         <p>Şəhər: ${item.city}</p>
+//         <p>Əhali: ${item.populationCounts[0].value}</p>
+//         <p>İl: ${item.populationCounts[0].year}</p>
+//         <hr>
+//       `;
+//       dataContainer.appendChild(countryInfo);
+//     });
+//   })
+//   .catch(error => {
+//     console.error('Xəta baş verdi:', error);
+//     dataContainer.innerHTML = '<p>Məlumat yüklənə bilmədi.</p>'; 
+//   });

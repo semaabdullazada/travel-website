@@ -1,20 +1,21 @@
 const dataContainer = document.getElementById('dataContainer');
-const seenCountries = new Set(); // Yalnız bir dəfə şəkil göstərəcək ölkələr üçün
-const favorite = document.querySelector('.favorite');
+const favoritesContainer = document.getElementById('favoritesContainer'); // Favoritlər üçün konteyner
+const seenCountries = new Set(); 
+
 fetch('https://countriesnow.space/api/v0.1/countries/population/cities')
-  .then(response => response.json()) // JSON formatında cavabı oxuyur
+  .then(response => response.json()) 
   .then(data => {
-    const results = data.data; // API-dən gələn əsas məlumatlar
+    const results = data.data; 
     console.log(results);
+
     results.forEach(item => {
-      // Əgər bu ölkə daha əvvəl göstərilməyibsə
       if (!seenCountries.has(item.country)) {
-        seenCountries.add(item.country); // Ölkəni göstərildiyi kimi qeyd edirik
-        
-        // Öz şəkil URL-lərinizi burada təyin edə bilərsiniz
+        seenCountries.add(item.country); 
+
+        // Ölkə üçün şəkil URL-i
         const countryImageUrl = getCountryImageUrl(item.country);
 
-        // Yeni bir div elementi yaradaraq məlumatları daxil edirik
+        // Ölkə məlumatları üçün div yaradırıq
         const countryInfo = document.createElement('div');
         countryInfo.classList.add('info-card');
         countryInfo.innerHTML = `
@@ -23,33 +24,52 @@ fetch('https://countriesnow.space/api/v0.1/countries/population/cities')
           <p>Şəhər: ${item.city}</p>
           <p>Əhali: ${item.populationCounts[0].value}</p>
           <p>İl: ${item.populationCounts[0].year}</p>
-          <img src="./Photos/heart.png" alt="heart" class="favorites"> <!-- Heart şəkli əlavə edilir -->
+          <div class="buy-container">
+            <button class="buy-button">Buy a ticket</button>
+            <img src="./Photos/heart.png" alt="heart" class="favorites"> 
+          </div>
         `;
-        console.log(item.country);
 
-        // "favorite" şəkilinə klikləyərək onu "favori" listinə əlavə edə bilərsiniz
+        // Favoritlər üçün funksionallıq
         const favoriteIcon = countryInfo.querySelector('.favorites');
         favoriteIcon.addEventListener('click', () => {
-          favoriteIcon.classList.toggle('added'); // Düyməyə stil əlavə et və ya sil
-          favoriteIcon.classList.toggle('added'); // Düyməyə stil əlavə et və ya sil
+          favoriteIcon.classList.toggle('added'); 
+          favoriteIcon.style.display = "block";
           if (favoriteIcon.classList.contains('added')) {
-            favoriteIcon.src = './Photos/heart (1).png'; // Doldurulmuş ürək şəkli
+            favoriteIcon.src = './Photos/heart (1).png'; 
+
+            // Favoritə əlavə edilir
+            const clone = countryInfo.cloneNode(true);
+            clone.querySelector('.favorites').remove(); // Favorit ikonunu silirik
+            favoritesContainer.appendChild(clone);
           } else {
-            favoriteIcon.src = './Photos/heart.png'; // Boş ürək şəkli
+            favoriteIcon.src = './Photos/heart.png';
+
+            // Favoritdən çıxarılır
+            const items = favoritesContainer.querySelectorAll('.info-card');
+            items.forEach(item => {
+              if (item.innerHTML === countryInfo.innerHTML) {
+                favoritesContainer.removeChild(item);
+              }
+            });
           }
         });
 
-        // Hazır div elementini əsas konteynerə əlavə edirik
+        // Əsas konteynerə əlavə edir
         dataContainer.appendChild(countryInfo);
       }
     });
   })
   .catch(error => {
     console.error('Xəta baş verdi:', error);
-    dataContainer.innerHTML = '<p>Məlumat yüklənə bilmədi.</p>'; // Xəta halında mesaj göstərilir
+    dataContainer.innerHTML = '<p>Məlumat yüklənə bilmədi.</p>';
   });
-
-// Ölkəyə uyğun şəkil URL-ləri təyin edirik
+         // "Favorites" düyməsinə klik edildikdə yeni tab açmaq
+         document.querySelector('.fav-button').addEventListener('click', function() {
+          // Favorites səhifəsini yeni tabda açır
+          window.open('fav.html', '_blank');
+        });
+    
 function getCountryImageUrl(country) {
   const countryImages = {
     "Åland Islands": "./Photos/licensed-image.jpg",

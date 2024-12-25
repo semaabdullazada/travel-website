@@ -174,7 +174,7 @@ button.subscribe:hover {
   
   .entry-word{
     position: absolute;
-    left: 12%;
+    left: 6%;
   }
   .subscribe{
     background-color: #d1cfcf;
@@ -288,6 +288,14 @@ button.subscribe:hover {
 
 .container-fest1 {
     position: relative; 
+}
+a{
+    text-decoration: none;
+    /* font-size: 20px;
+    font-weight: 300;
+    position: absolute;
+    background-color: wheat;
+ */
 }
 
 .festivals:hover {
