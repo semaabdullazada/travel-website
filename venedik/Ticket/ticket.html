@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ticket Booking</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>Venedik Gondol Bilet Al</h1>
+    <form action="/buy-ticket" method="post" class="booking-form">
+        <!-- Səyahət Tarixi -->
+        <label for="date">Səyahət Tarixi:</label>
+        <input type="date" id="date" name="date" required>
+
+        <!-- Saat Seçimi -->
+        <label for="time">Saat:</label>
+        <input type="time" id="time" name="time" required>
+
+        <!-- Sərnişin Sayı -->
+        <label for="passenger">Sərnişin Sayı:</label>
+        <input type="number" id="passenger" name="passenger" min="1" required>
+
+        <!-- Bilet Növü -->
+        <label for="ticket">Bilet Növü:</label>
+        <select id="ticket" name="ticket">
+            <option value="adult">Böyük</option>
+            <option value="child">Uşaq</option>
+            <option value="senior">Yaşlı</option>
+        </select>
+
+        <!-- Ödəniş Metodları -->
+        <label for="payment">Ödəniş Metodu:</label>
+        <select id="payment" name="payment">
+            <option value="credit-card">Kredit Kartı</option>
+            <option value="paypal">PayPal</option>
+            <option value="apple-pay">Apple Pay</option>
+        </select>
+
+        <!-- Sifarişi Tamamla Düyməsi -->
+        <button type="submit" class="submit-btn">Bileti Al</button>
+    </form>
+</body>
+</html>

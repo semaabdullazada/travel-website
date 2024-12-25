@@ -248,19 +248,19 @@ button.subscribe:hover {
 }
 
 .more-info {
-    position: absolute; 
-    top: 50%;          
-    left: 35%;      
-
+    position: absolute;
+    bottom: 5%; /* Üfüqi mərkəzləşdirmə */
+    left: 50%; /* Şaquli mərkəzləşdirmə */
+    transform: translate(-50%, -50%); /* Elementi tam mərkəzə çəkir */
     background-color: #d1cfcf;
     padding: 10px 20px;
-    border: none;
     border-radius: 5px;
     cursor: pointer; 
     font-size: 16px;
-    justify-content: center;
     z-index: 1; 
+    border: none;
 }
+
 
 .festivals {
     width: 400px; 
@@ -336,4 +336,9 @@ a{
 
 .header-text{
     margin-top: 3%;
+}
+.text-h1{
+    color: #333;
+    text-align: center;
+    font-size: 40px;
 }
