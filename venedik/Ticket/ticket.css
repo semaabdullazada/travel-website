@@ -55,27 +55,13 @@ h3 {
     color: #333;
 }
 
-/* Buttons styling */
-button {
-    padding: 10px;
-    font-size: 16px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    background-color: #4CAF50;
-    color: #fff;
-    transition: background-color 0.3s ease;
+.back-contain{
+    background-color: none;
+}
+button{
+    background-color: none;
 }
 
-button:hover {
-    background-color: #45a049;
-}
-
-button:active {
-    background-color: #3e8e41;
-}
-
-/* Gif section styling */
 .gif {
     display: flex;
     justify-content: center;
@@ -102,4 +88,18 @@ button:active {
     button {
         font-size: 14px;
     }
+}
+.back{
+    position: absolute;
+    left: 30px;
+    top:30px;
+    font-size: 20px;
+}
+
+.back-img{
+    width: 20px;
+    height: 20px;
+}
+.back-container{
+    display: flex;
 }

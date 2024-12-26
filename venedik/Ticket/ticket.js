@@ -2,9 +2,14 @@ const eventSelect = document.getElementById('event');
 const adultSelect = document.getElementById('adult');
 const childSelect = document.getElementById('child');
 const totalPrice = document.getElementById('total-price');
+const backPage = document.querySelector('.back');
+function goBack() {
+    window.history.back();
+}
+
+backPage.addEventListener('click', goBack);
 
 function calculatePrice() {
-    // Qiymət parametrləri
     const prices = {
         rio: { adult: 240, child: 40 },
         holi: { adult: 240, child: 90 },

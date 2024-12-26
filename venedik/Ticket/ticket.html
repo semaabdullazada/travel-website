@@ -7,30 +7,31 @@
     <link rel="stylesheet" href="ticket.css">
 </head>
 <body>
-    <button></button>
-    <div class="activity-details">
-        <h1>Event Booking</h1>
-        <form action="/book-now" method="post" class="booking-form">
-            <label for="event">Event:</label>
+    <div>
+        
+        <div class="activity-details">
+            <h1>Event Booking</h1>
+            <form action="/book-now" method="post" class="booking-form">
+                <label for="event">Event:</label>
             <select id="event" name="event">
-            <option value="secim">Seciminizi edin</option>
-            <option value="rio">Rio festival</option>
-            <option value="holi">Holi Festival</option>
-            <option value="karaoke">Karoke</option>
+                <option value="secim">Seciminizi edin</option>
+                <option value="rio">Rio festival</option>
+                <option value="holi">Holi Festival</option>
+                <option value="karaoke">Karoke</option>
             <option value="venice">Venedik festival</option>
             <option value="skydiving">Skydiving</option>
             <option value="yoga">Yoga</option>
-            </select>
-           <label for="adult">Adult:</label>
-            <select id="adult" name="adult">
-                <option value="0">0</option>
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-                <option value="6">6</option>
-                <option value="7">7</option>
+        </select>
+        <label for="adult">Adult:</label>
+        <select id="adult" name="adult">
+            <option value="0">0</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
                 <option value="8">8</option>
                 <option value="9">9</option>
             </select>
@@ -46,15 +47,16 @@
                 <option value="7">7</option>
                 <option value="8">8</option>
                 <option value="9">9</option>          
-              </select>
+            </select>
 
             <h3>Total Price: <span id="total-price">$0.00</span></h3>
-
+            
             <button type="submit" class="book-btn">Book Now</button>
             <button type="button" class="cart-btn">Add to Cart</button>
         </form>
     </div>
-
+    <div class="back-container"><button class="back" ><img src="./back.png" class="back-img">Back</button></div>
+</div>
    <script src="./ticket.js"></script>
 </body>
 </html>
