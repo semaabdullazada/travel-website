@@ -1,16 +1,17 @@
-document.addEventListener("DOMContentLoaded", () => {
-  const container = document.createElement("div");
-  container.id = "favorites-container";
-  document.body.appendChild(container);
+const favData = JSON.parse(localStorage.getItem('favorites')) || [];
+const favContainer = document.getElementById('favContainer');
 
-  const button = document.createElement("button");
-  button.id = "addFavorite";
-  button.textContent = "Add Favorite";
-  document.body.appendChild(button);
-
-  button.addEventListener("click", () => {
-      const newItem = document.createElement("div");
-      newItem.textContent = "Yeni Favori";
-      container.appendChild(newItem);
-  });
+favData.forEach(item => {
+  const card = document.createElement('div');
+  card.classList.add('info-card');
+  card.innerHTML = `
+    <img src="${item.image}" alt="${item.country}">
+    <h3>Ölkə: ${item.country}</h3>
+    <p>Şəhər: ${item.city}</p>
+    <p>Əhali: ${item.population}</p>
+    <div class="buy-container">
+      <button class="buy-button">Buy a ticket</button>
+    </div>
+  `;
+  favContainer.appendChild(card);
 });

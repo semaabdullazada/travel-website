@@ -246,12 +246,11 @@ button.subscribe:hover {
 .images-container::-webkit-scrollbar {
     display: none; 
 }
-
 .more-info {
     position: absolute;
-    bottom: 5%; /* Üfüqi mərkəzləşdirmə */
-    left: 50%; /* Şaquli mərkəzləşdirmə */
-    transform: translate(-50%, -50%); /* Elementi tam mərkəzə çəkir */
+    bottom: 5%; 
+    left: 50%; 
+    transform: translate(-50%, -50%); 
     background-color: #d1cfcf;
     padding: 10px 20px;
     border-radius: 5px;

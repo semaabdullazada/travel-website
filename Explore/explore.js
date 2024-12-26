@@ -1,5 +1,5 @@
 const dataContainer = document.getElementById('dataContainer');
-const favoritesContainer = document.getElementById('favoritesContainer'); // Favoritlər üçün konteyner
+const favoritesContainer = document.getElementById('favoritesContainer');
 const seenCountries = new Set(); 
 
 fetch('https://countriesnow.space/api/v0.1/countries/population/cities')
@@ -11,11 +11,7 @@ fetch('https://countriesnow.space/api/v0.1/countries/population/cities')
     results.forEach(item => {
       if (!seenCountries.has(item.country)) {
         seenCountries.add(item.country); 
-
-        // Ölkə üçün şəkil URL-i
         const countryImageUrl = getCountryImageUrl(item.country);
-
-        // Ölkə məlumatları üçün div yaradırıq
         const countryInfo = document.createElement('div');
         countryInfo.classList.add('info-card');
         countryInfo.innerHTML = `
@@ -23,29 +19,22 @@ fetch('https://countriesnow.space/api/v0.1/countries/population/cities')
           <h3>Ölkə: ${item.country}</h3>
           <p>Şəhər: ${item.city}</p>
           <p>Əhali: ${item.populationCounts[0].value}</p>
-          <p>İl: ${item.populationCounts[0].year}</p>
           <div class="buy-container">
             <button class="buy-button">Buy a ticket</button>
             <img src="./Photos/heart.png" alt="heart" class="favorites"> 
           </div>
         `;
 
-        // Favoritlər üçün funksionallıq
         const favoriteIcon = countryInfo.querySelector('.favorites');
         favoriteIcon.addEventListener('click', () => {
           favoriteIcon.classList.toggle('added'); 
-          favoriteIcon.style.display = "block";
           if (favoriteIcon.classList.contains('added')) {
             favoriteIcon.src = './Photos/heart (1).png'; 
-
-            // Favoritə əlavə edilir
             const clone = countryInfo.cloneNode(true);
-            clone.querySelector('.favorites').remove(); // Favorit ikonunu silirik
+            clone.querySelector('.favorites').remove(); 
             favoritesContainer.appendChild(clone);
           } else {
             favoriteIcon.src = './Photos/heart.png';
-
-            // Favoritdən çıxarılır
             const items = favoritesContainer.querySelectorAll('.info-card');
             items.forEach(item => {
               if (item.innerHTML === countryInfo.innerHTML) {
@@ -54,8 +43,6 @@ fetch('https://countriesnow.space/api/v0.1/countries/population/cities')
             });
           }
         });
-
-        // Əsas konteynerə əlavə edir
         dataContainer.appendChild(countryInfo);
       }
     });
@@ -64,12 +51,27 @@ fetch('https://countriesnow.space/api/v0.1/countries/population/cities')
     console.error('Xəta baş verdi:', error);
     dataContainer.innerHTML = '<p>Məlumat yüklənə bilmədi.</p>';
   });
-         // "Favorites" düyməsinə klik edildikdə yeni tab açmaq
-         document.querySelector('.fav-button').addEventListener('click', function() {
-          // Favorites səhifəsini yeni tabda açır
-          window.open('fav.html', '_blank');
-        });
-    
+  const favButton = document.querySelector('.fav-button');
+  if (favButton) {
+    favButton.addEventListener('click', function () {
+      const favorites = [];
+      const items = favoritesContainer.querySelectorAll('.info-card');
+  
+      items.forEach(item => {
+        const image = item.querySelector('img').src;
+        const country = item.querySelector('h3').textContent.replace('Ölkə: ', '');
+        const city = item.querySelector('p:nth-child(3)').textContent.replace('Şəhər: ', '');
+        const population = item.querySelector('p:nth-child(4)').textContent.replace('Əhali: ', '');
+  
+        favorites.push({ image, country, city, population });
+      });
+  
+      localStorage.setItem('favorites', JSON.stringify(favorites));
+  
+      window.open('fav.html', '_blank');
+    });
+  }
+  
 function getCountryImageUrl(country) {
   const countryImages = {
     "Åland Islands": "./Photos/licensed-image.jpg",
@@ -243,6 +245,5 @@ function getCountryImageUrl(country) {
     "Senegal": "./Photos/Senegal"
   };
 
-  // Əgər ölkə siyahıda varsa, uyğun şəkil URL-ni qaytarırıq
-  return countryImages[country] || "https://source.unsplash.com/250x150/?world"; // Fallback şəkil
+  return countryImages[country] || "https://source.unsplash.com/250x150/?world"; 
 }

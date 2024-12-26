@@ -1,12 +1,17 @@
-const addButtonAboutUs = document.querySelector('.add.aboutUs');
-const aboutUsText = document.querySelector('.aboutUs');
-aboutUsText.style.display = 'none'; 
-addButtonAboutUs.addEventListener('click', () => {
-  if (aboutUsText.style.display === 'none' || aboutUsText.style.display === '') {
-    aboutUsText.style.display = 'block';
-  } else {
-    aboutUsText.style.display = 'none';
-  }
+const addButtonAboutUs = document.querySelectorAll('.add');
+const texts = document.querySelectorAll('.text');
+
+addButtonAboutUs.forEach((btn, index) => {
+  btn.addEventListener('click', () => {
+    const text = texts[index];
+    if (text.style.display === '' || text.style.display === 'none') {
+      text.style.display = 'block';
+      btn.src = './minus.png'; 
+    } else {
+      text.style.display = 'none';
+      btn.src = './add.png'; 
+    }
+  });
 });
 
 const addButtonHistory = document.querySelector('.add.ourHistory');
