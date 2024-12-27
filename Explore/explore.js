@@ -248,7 +248,7 @@ function displayCountries(results) {
 }
 
 document.querySelector('.fav-button').addEventListener('click', function() {
-  window.open('../Ticket/fav.html', '_blank');
+  window.open('../Explore/fav.html', '_blank');
 });
  
 
