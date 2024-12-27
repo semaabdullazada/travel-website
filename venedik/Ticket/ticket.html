@@ -11,7 +11,7 @@
         
         <div class="activity-details">
             <h1>Event Booking</h1>
-            <form action="/book-now" method="post" class="booking-form">
+            <form class="booking-form">
                 <label for="event">Event:</label>
             <select id="event" name="event">
                 <option value="secim">Seciminizi edin</option>
@@ -22,6 +22,9 @@
             <option value="skydiving">Skydiving</option>
             <option value="yoga">Yoga</option>
         </select>
+        <label for="date">Date:</label>
+<input type="date" id="date" name="date" required>
+
         <label for="adult">Adult:</label>
         <select id="adult" name="adult">
             <option value="0">0</option>
@@ -52,7 +55,6 @@
             <h3>Total Price: <span id="total-price">$0.00</span></h3>
             
             <button type="submit" class="book-btn">Book Now</button>
-            <button type="button" class="cart-btn">Add to Cart</button>
         </form>
     </div>
     <div class="back-container"><button class="back" ><img src="./back.png" class="back-img">Back</button></div>

@@ -1,9 +1,40 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Lora:ital,wght@0,400..700;1,400..700&family=Playwrite+AU+TAS+Guides&family=Playwrite+NL+Guides&family=Roboto+Slab:wght@100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap');
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
+.aforism {
+    width: 90vw;
+    height: 96vh;
+    font-size: 70px;
+    font-weight: 600;    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-family: "Dancing Script", serif;
+    position: relative;
+    
+}
+.aforism-image{
+    width: 70vw;
+    height: 90vh; 
+    border-radius: 8px;
+    object-fit: cover;
+    right: 10%;
+    /* margin-right: 5%; */
+    position: relative;
+    margin-top: 14%;
+    margin-bottom: 10%;
 
+}
+.aforism-text{
+    margin-left: 10%;
+    margin-right:13%;
+    
+    color:#0056b3;
+}
 body {
     height: 100%;
     width: 100%;
@@ -80,6 +111,7 @@ label{
     border-radius: 8px;
     position: absolute;
     right: 15%;
+    top: 12%;
 }
 
 .form-group {
@@ -100,6 +132,7 @@ input {
     border: 1px solid #ccc;
     border-radius: 5px;
     outline: none;
+    
 }
 
 input:focus {
@@ -123,12 +156,6 @@ button.subscribe:hover {
 }
 
 
-
-
-.login:focus {
-    outline: none;
-    border: 2px solid #007BFF;
-}
 
 .login::placeholder {
     color: #aaa;
@@ -288,6 +315,10 @@ button.subscribe:hover {
 .container-fest1 {
     position: relative; 
 }
+.text-h1{
+    color: #0056b3;
+    font-family: "Dancing Script", serif;
+}
 a{
     text-decoration: none;
     /* font-size: 20px;
@@ -321,26 +352,64 @@ a{
     /* height: 0px; */
     width: 12%;
     margin-top: 0px;
-    /* margin-left: 0px; */
-    /* padding: 1%; */
     font-size: 38px;
-    /* margin-left: 6%; */
     left: 20%;
     justify-content: center;
-    /* color: brown; */
 }
 .seeAllTradition:hover{
     background-color: #d1cfcf;
 }
 
+.section{
+    display: flex;
+    margin-bottom: 5%;
+}
 .header-text{
     margin-top: 3%;
 }
 .text-h1{
-    color: #333;
+    color:#0056b3;
     text-align: center;
     font-size: 40px;
 }
+.travelP{
+    
+    max-width:50vw; 
+    max-height:50vh;
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    margin-left: 20px;
+
+    transition: transform 0.6s ease, box-shadow 0.3s ease; 
+} 
+.info{  
+    margin-left: 20px;
+    margin-right: 20px;
+    /* position: absolute; */
+}
+
+.infor{
+    margin-top: 4%;
+}
+h1{
+    margin-left: 20px;
+}
+footer {
+    width: 100%;
+    height: 60px;
+    background-color: #333;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;    
+    font-size: 16px;
+    font-family: Arial, sans-serif;
+    bottom: 0;      
+    left: 0;
+    z-index: 10;    
+}
+
 @media (max-width: 480px) and (min-width: 300px) {
 
     .boldshift{
@@ -349,29 +418,96 @@ a{
     }
     .login-form{
         width:200px;
-        top:28%;
+        top:23%;
     }   
     .entry-word{
         top:10%;
     }
     .text-h1{
         font-size: 30px;
+
     }
     img.festivals{
         width: 200px;
         height: 200px;
     }
+    /* .header-line{
+        height: 80vh;
+    }
+    .fimage{
+        height: 80vh;
+    } */
+     .sections{
+        display: inline;
+       
+     }
+     .aforism-text{
+        margin-left: 20%;
+        font-size: 20px;
+    }
+    .aforism-image{
+        width: 200px;
+        height: 200px;
+    }
+    .aforism {
+        height: 55vh;
+        
+    }
+    .section{
+        display: inline;
+    }
+    .header-line{
+        height: 50vh;
+    }
+    .fimage{
+        height: 74vh;
+    }
 }
 
-@media (max-width: 768px) and (min-width: 481px) {
+@media (max-width: 846px) and (min-width: 481px) {
 
     .boldshift{
-        font-size: 50px;
+        font-size: 40px;
         left:20%;
+        top:30%;
     }
     .login-form{
         width:300px;
-        top:28%;
+        top:22%;
+    }   
+    .entry-word{
+        top:8%;
+    }
+    .text-h1{
+        font-size: 40px;
+    }
+    img.festivals{
+        width: 300px;
+        height: 300px;
+    }
+    .aforism-text{
+        margin-left: 20%;
+        font-size: 40px;
+    }
+    .aforism-image{
+        width: 300px;
+        height: 300px;
+    }
+    .aforism {
+        height: 55vh;
+        
+    }
+    
+}
+@media (max-width: 1200px) and (min-width: 847px) {
+    .boldshift{
+        font-size: 76px;
+        left:8%;
+    }
+    .login-form{
+        width:300px;
+        top:8%;
+        right: 10%;
     }   
     .entry-word{
         top:10%;
@@ -383,24 +519,152 @@ a{
         width: 300px;
         height: 300px;
     }
+    li{
+        font-size: 40px;
+    }
+    label{
+        font-size: 30px;
+    }
+    input{
+        font-size: 25px;
+    }
+    .aforism-text{
+        margin-left: 40%;
+    }
+    .aforism-image{
+        width: 500px;
+        height: 500px;
+    }
+    .aforism-text{
+        font-size: 40px;
+        margin-left: 20%;
+    }
+   
 }
-@media (max-width: 1200px) and (min-width: 769px) {
+
+
+@media (max-width: 2031px) and (min-width: 1201px) {
     .boldshift{
         font-size: 70px;
-        left:20%;
+        left:8%;
     }
     .login-form{
-        width:300px;
-        top:28%;
+        width:400px;
+        top:10%;
+        right: 10%;
     }   
     .entry-word{
         top:10%;
     }
     .text-h1{
-        font-size: 50px;
+        font-size: 40px;
     }
     img.festivals{
-        width: 300px;
-        height: 300px;
+        width: 500px;
+        height: 500px;
     }
+    li{
+        font-size: 50px;
+    }
+    label{
+        font-size: 30px;
+    }
+    input{
+        font-size: 20px;
+    }
+    h1{
+        font-size: 40px;
+    }
+    .info{
+        font-size: 30px;
+    }
+}.services {
+    display: flex;
+    flex-wrap: wrap;   
+    justify-content: space-around;
+    align-items: stretch; 
+    flex-wrap: wrap; 
+    margin: 2rem 0;
+    gap: 1rem; 
+}
+.service {
+    display: flex;
+    flex-direction: column; 
+    justify-content: center; 
+    align-items: center; 
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 1.5rem;
+    width: 300px;
+    text-align: center;
+    margin: 1rem;
+    height: 300px; 
+}
+
+.service img {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 1rem;
+}
+
+.service h3 {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+}
+
+.service p {
+    color: #666;
+    flex-grow: 1; 
+}
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+.payment-methods {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 2rem;
+}
+
+.payment-method {
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 1.5rem;
+    width: 250px;
+    margin: 1rem;
+    text-align: center;
+}
+
+.payment-method img {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 1rem;
+}
+
+.payment-method h3 {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+}
+
+.payment-method p {
+    color: #666;
+    margin-bottom: 1rem;
+}
+
+.payment-method ul {
+    text-align: left;
+    padding-left: 20px;
+}
+
+.payment-method li {
+    color: #666;
+    margin-bottom: 0.5rem;
 }

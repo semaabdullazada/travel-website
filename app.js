@@ -33,3 +33,4 @@ app.get('/api', async (req, res) => {
 app.listen(port, () => {
     console.log(`API server is running at http://localhost:${port}`);
 });
+

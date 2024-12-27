@@ -36,3 +36,4 @@ childSelect.addEventListener('change', calculatePrice);
 
 // İlk hesablamanı çağır
 calculatePrice();
+ 

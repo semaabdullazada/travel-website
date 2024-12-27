@@ -1,77 +1,257 @@
 const dataContainer = document.getElementById('dataContainer');
 const favoritesContainer = document.getElementById('favoritesContainer');
-const seenCountries = new Set(); 
+const searchButton = document.getElementById('searchButton');
+const searchInput = document.getElementById('search');
+const seenCountries = new Set();
+const goTicket = document.querySelector('.buy-button');
+
+const ticketPrices = {
+  "Azerbaijan": "$200",
+  "Turkey": "$150",
+  "USA": "$500",
+  "Åland Islands": "$300",
+  "Albania": "$540",
+  "Algeria": "$230",
+  "American Samoa": "$310",
+  "Andorra": "$340",
+  "Anguilla": "$540",
+  "Antigua and Barbuda": "$210",
+  "Argentina": "$400",
+  "Armenia": "$120",
+  "Aruba": "$230",
+  "Australia": "$340",
+  "Austria": "$390",
+  "Bahrain": "$312",
+  "Azerbaijan": "$320",
+  "Bahamas": "$340",
+  "Bangladesh": "$370",
+  "Barbados": "$210",
+  "Belarus": "$530",
+  "Belgium": "$540",
+  "Bermuda": "$200",
+  "Bhutan": "$540",
+  "Bolivia (Plurinational State of)": "$650",
+  "Bosnia and Herzegovina": "$700",
+  "Botswana": "$700",
+  "Brazil": "$200",
+  "British Virgin Islands": "$350",
+  "Brunei Darussalam": "$370",
+  "Bulgaria": "$320",
+  "Burkina Faso": "$320",
+  "Burundi": "$300",
+  "Cabo Verde": "$200",
+  "Cameroon": "$400",
+  "Canada": "$540",
+  "Cayman Islands": "$545",
+  "Central African Republic": "$310",
+  "Chad": "$343",
+  "Chile": "$320",
+  "China": "$360",
+  "China, Hong Kong SAR": "$370",
+  "Colombia": "$310",
+  "China, Macao SAR": "$400",
+  "Comoros": "$360",
+  "Congo": "$310",
+  "Cook Islands": "$306",
+  "Costa Rica": "$340",
+  "Côte d'Ivoire": "$230",
+  "Croatia": "$400",
+  "Cuba": "$550",
+  "Czech Republic": "$440",
+  "Democratic People's Republic of Korea": "$320",
+  "Denmark": "$340",
+  "Dominica": "$370",
+  "Dominican Republic": "$320",
+  "Ecuador": "$350",
+  "Egypt": "$370",
+  "El Salvador": "$360",
+  "Equatorial Guinea": "$300",
+  "Eritrea": "$300",
+  "Estonia": "$500",
+  "Faeroe Islands": "$600",
+  "Falkland Islands (Malvinas)": "$700",
+  "Fiji": "$300",
+  "Finland": "$300",
+  "France": "$300",
+  "French Guiana": "$700",
+  "French Polynesia": "$700",
+  "Gabon": "$300",
+  "Gambia": "$300",
+  "Georgia": "$300",
+  "Germany": "$400",
+  "Ghana": "$700",
+  "Gibraltar": "$300",
+  "Greece": "$300",
+  "Greenland": "$300",
+  "Grenada": "$300",
+  "Guadeloupe": "$700",
+  "Guam": "$300",
+  "Guatemala": "$300",
+  "Guernsey": "$300",
+  "Guinea": "$700",
+  "Guinea-Bissau": "$700",
+  "Guyana": "$300",
+  "Holy See": "$600",
+  "Honduras": "$700",
+  "Hungary": "$300",
+  "Iceland": "$350",
+  "India": "$370",
+  "Indonesia": "$300",
+  "Iran (Islamic Republic of)": "$300",
+  "Iraq": "$2100",
+  "Ireland": "$340",
+  "Isle of Man": "$360",
+  "Israel": "$330",
+  "Italy": "$376",
+  "Jamaica": "$370",
+  "Japan": "$302",
+  "Jersey": "$354",
+  "Jordan": "$306",
+  "Kazakhstan": "$360",
+  "Kenya": "$320",
+  "Kiribati": "$400",
+  "Kuwait": "$200",
+  "Kyrgyzstan": "$350",
+  "Lao People's Democratic Republic": "$300",
+  "Latvia": "$350",
+  "Lebanon": "$350",
+  "Lesotho": "$307",
+  "Liberia": "$308",
+  "Liechtenstein": "$310",
+  "Lithuania": "$3050",
+  "Luxembourg": "$3050",
+  "Madagascar": "$360",
+  "Malawi": "$305",
+  "Malaysia": "$350",
+  "Maldives": "$320",
+  "Malta": "$360",
+  "Marshall Islands": "$300",
+  "Martinique": "$360",
+  "Mauritania": "$360",
+  "Mauritius": "$300",
+  "Mexico": "$300",
+  "Micronesia (Federated States of)": "$300",
+  "Monaco": "$300",
+  "Mongolia": "$300",
+  "Montenegro": "$300",
+  "Montserrat": "$360",
+  "Mozambique": "$320",
+  "Myanmar": "$430",
+  "Namibia": "$320",
+  "Nauru": "$120",
+  "Nepal": "$540",
+  "Netherlands": "$400",
+  "New Caledonia": "$320",
+  "New Zealand": "$1200",
+  "Nicaragua": "$320",
+  "Niger": "$364",
+  "Nigeria": "$300",
+  "Niue": "$200",
+  "Northern Mariana Islands": "$310",
+  "Norway": "$380",
+  "Oman": "$400",
+  "Pakistan": "$600",
+  "Palau": "$100",
+  "Papua New Guinea": "$200",
+  "Paraguay": "$400",
+  "Peru": "$100",
+  "Philippines": "$600",
+  "Pitcairn": "$200",
+  "Poland": "$370",
+  "Portugal": "$320",
+  "Puerto Rico": "$360",
+  "Qatar": "$340",
+  "Republic of Korea": "$100",
+  "Republic of Moldova": "$330",
+  "Republic of South Sudan": "$120",
+  "Réunion": "$330",
+  "Romania": "$350",
+  "Russian Federation": "$400",
+  "Rwanda": "$340",
+  "Saint Helena ex. dep.": "$650",
+  "Saint Kitts and Nevis": "$700",
+  "Saint Lucia": "$540",
+  "Saint Pierre and Miquelon": "$240",
+  "Saint Vincent and the Grenadines": "$340",
+  "Samoa": "$200",
+  "San Marino": "$760",
+  "Sao Tome and Principe": "$350",
+  "Saudi Arabia": "$500",
+  "Senegal": "$300",
+};
+
 
 fetch('https://countriesnow.space/api/v0.1/countries/population/cities')
-  .then(response => response.json()) 
+  .then(response => response.json())
   .then(data => {
-    const results = data.data; 
-    console.log(results);
+    const results = data.data;
+    displayCountries(results.slice(0, 2990));
+    
+    searchButton.addEventListener('click', () => {
+      const query = searchInput.value.toLowerCase();
+      const filteredResults = results.filter(item => 
+        item.country.toLowerCase().includes(query) || item.city.toLowerCase().includes(query)
+      );
 
-    results.forEach(item => {
-      if (!seenCountries.has(item.country)) {
-        seenCountries.add(item.country); 
-        const countryImageUrl = getCountryImageUrl(item.country);
-        const countryInfo = document.createElement('div');
-        countryInfo.classList.add('info-card');
-        countryInfo.innerHTML = `
-          <img src="${countryImageUrl}" alt="${item.country}">
-          <h3>Ölkə: ${item.country}</h3>
-          <p>Şəhər: ${item.city}</p>
-          <p>Əhali: ${item.populationCounts[0].value}</p>
-          <div class="buy-container">
-            <button class="buy-button">Buy a ticket</button>
-            <img src="./Photos/heart.png" alt="heart" class="favorites"> 
-          </div>
-        `;
-
-        const favoriteIcon = countryInfo.querySelector('.favorites');
-        favoriteIcon.addEventListener('click', () => {
-          favoriteIcon.classList.toggle('added'); 
-          if (favoriteIcon.classList.contains('added')) {
-            favoriteIcon.src = './Photos/heart (1).png'; 
-            const clone = countryInfo.cloneNode(true);
-            clone.querySelector('.favorites').remove(); 
-            favoritesContainer.appendChild(clone);
-          } else {
-            favoriteIcon.src = './Photos/heart.png';
-            const items = favoritesContainer.querySelectorAll('.info-card');
-            items.forEach(item => {
-              if (item.innerHTML === countryInfo.innerHTML) {
-                favoritesContainer.removeChild(item);
-              }
-            });
-          }
-        });
-        dataContainer.appendChild(countryInfo);
-      }
+      displayCountries(filteredResults.slice(0, 50))
     });
   })
   .catch(error => {
     console.error('Xəta baş verdi:', error);
     dataContainer.innerHTML = '<p>Məlumat yüklənə bilmədi.</p>';
   });
-  const favButton = document.querySelector('.fav-button');
-  if (favButton) {
-    favButton.addEventListener('click', function () {
-      const favorites = [];
-      const items = favoritesContainer.querySelectorAll('.info-card');
-  
-      items.forEach(item => {
-        const image = item.querySelector('img').src;
-        const country = item.querySelector('h3').textContent.replace('Ölkə: ', '');
-        const city = item.querySelector('p:nth-child(3)').textContent.replace('Şəhər: ', '');
-        const population = item.querySelector('p:nth-child(4)').textContent.replace('Əhali: ', '');
-  
-        favorites.push({ image, country, city, population });
+
+function displayCountries(results) {
+  dataContainer.innerHTML = ''; 
+  seenCountries.clear();
+
+  results.forEach(item => {
+    if (!seenCountries.has(item.country)) {
+      seenCountries.add(item.country);
+      const countryImageUrl = getCountryImageUrl(item.country);
+      const ticketPrice = ticketPrices[item.country] || "Qiymət məlum deyil"; 
+
+      const countryInfo = document.createElement('div');
+      countryInfo.classList.add('info-card');
+      countryInfo.innerHTML = `
+        <img src="${countryImageUrl}" alt="${item.country}">
+        <h3>Ölkə: ${item.country}</h3>
+        <p>Şəhər: ${item.city}</p>
+        <p>Əhali: ${item.populationCounts[0].value}</p>
+        <div class="buy-container">
+          <button class="buy-button">Buy a ticket (${ticketPrice})</button>
+          <img src="./Photos/heart.png" alt="heart" class="favorites">
+        </div>
+      `;
+
+      const favoriteIcon = countryInfo.querySelector('.favorites');
+      favoriteIcon.addEventListener('click', () => {
+        favoriteIcon.classList.toggle('added');
+        if (favoriteIcon.classList.contains('added')) {
+          favoriteIcon.src = './Photos/heart (1).png';
+          const clone = countryInfo.cloneNode(true);
+          clone.querySelector('.favorites').remove();
+          favoritesContainer.appendChild(clone);
+        } else {
+          favoriteIcon.src = './Photos/heart.png';
+          const items = favoritesContainer.querySelectorAll('.info-card');
+          items.forEach(item => {
+            if (item.innerHTML === countryInfo.innerHTML) {
+              favoritesContainer.removeChild(item);
+            }
+          });
+        }
       });
-  
-      localStorage.setItem('favorites', JSON.stringify(favorites));
-  
-      window.open('fav.html', '_blank');
-    });
-  }
-  
+      dataContainer.appendChild(countryInfo);
+    }
+  });
+}
+
+document.querySelector('.fav-button').addEventListener('click', function() {
+  window.open('fav.html', '_blank');
+});
+ 
+
 function getCountryImageUrl(country) {
   const countryImages = {
     "Åland Islands": "./Photos/licensed-image.jpg",
@@ -245,5 +425,7 @@ function getCountryImageUrl(country) {
     "Senegal": "./Photos/Senegal"
   };
 
+
   return countryImages[country] || "https://source.unsplash.com/250x150/?world"; 
 }
+
