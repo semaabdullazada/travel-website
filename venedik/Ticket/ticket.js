@@ -33,7 +33,5 @@ function calculatePrice() {
 eventSelect.addEventListener('change', calculatePrice);
 adultSelect.addEventListener('change', calculatePrice);
 childSelect.addEventListener('change', calculatePrice);
-
-// İlk hesablamanı çağır
 calculatePrice();
  
