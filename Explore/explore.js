@@ -185,7 +185,7 @@ fetch('https://countriesnow.space/api/v0.1/countries/population/cities')
   .then(response => response.json())
   .then(data => {
     const results = data.data;
-    displayCountries(results.slice(0, 2990));
+    displayCountries(results.slice(0, 2090));
     
     searchButton.addEventListener('click', () => {
       const query = searchInput.value.toLowerCase();
