@@ -248,7 +248,7 @@ function displayCountries(results) {
 }
 
 document.querySelector('.fav-button').addEventListener('click', function() {
-  window.open('fav.html', '_blank');
+  window.open('./fav.html', '_blank');
 });
  
 
